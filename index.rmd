@@ -1,0 +1,51 @@
+---
+title: "FFF Vårcupen 2020"
+output: html_document
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(readr)
+library(readxl)
+library(DT)
+library(kableExtra)
+```
+
+## Då var det äntligen dags igen för Vårcupen!
+De senaste veckorna har pratet på FFF endast kretsat kring vårens höjdpunkt: när startar Vårcupen?!  
+
+Tävlingsledningen kan nu sätta stopp för alla fantasifulla spekulationer kring datumen genom att officiellt publicera datumet för 1:a deltävlingen: **tisdagen den 4 februari** (start kl 19:15).  
+
+Det är totalt 5 deltävlingar där poängresultaten gresutlaten från de 4 bästa deltävlingar räknas ihop.  
+
+Som vanligt är tävlingsformatet att vi börjar med inledande poulefäktning där alla deltagare går vidare till direkteliminering. Inledningsvis fäktas direktelimineringsmatcherna upp till 10 stötar, men från kvartsfinalen övergår vi till 15-stötsmatcher.  
+
+Fäktarna får poäng efter plasering enlig detta system:  
+
+
+```{r points_table, include=FALSE}
+# Import file and create dataframe
+points <- read_excel("C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/Vårcup/Vårcup 2020/point_system.xlsx")
+# View(points)
+```
+
+
+```{r echo=FALSE}
+# Create tabel output using kableExtra package
+kable(points) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+```
+
+
+### Boka in dom här datumen i era kalendrar:   
+  -  *Deltävling 1*: tisdagen den **4 februari** (start kl 19:15)    
+  -  *Deltävling 2*: tisdagen den **3 mars** (start kl 19:15)  
+  -  *Deltävling 3*: tisdagen den **24 mars** (start kl 19:15)  
+  -  *Deltävling 4*: tisdagen den *14 apri** (start kl 19:15)  
+  -  *Deltävling 5*: tisdagen den **4 maj** (start kl 19:15) 
+
+## Låt oss minnas förra året
+Förra året var det ingen mindre än **Tor Forsse** som tog hem segern före CH Wendt som i en rafflande sista deltävling lyckades ta sig före Karsten Kaping.  
+
+Det var 42 fäktare som ställde upp i förra årets tävlingar, men endast CH startade i samtliga 5 deltävlingarna. Den bästa fäktaren från annan klubb var Linus som deltog i två deltävlingar, men gjorde då så bra ifrån sig (en 1:a och en 2:a plats) så att  det räckte till en sammanlagd 5:e plats.
+
