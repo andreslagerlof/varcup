@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3620522166",
+    "hash" : "1596684431",
     "id" : "DAB0B1F7",
-    "lastKnownWriteTime" : 1580061838,
-    "last_content_update" : 1580061838,
-    "path" : "C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/Vårcup/Vårcup 2020/proj2020/varcup2020/index.rmd",
+    "lastKnownWriteTime" : 1580065232,
+    "last_content_update" : 1580065232918,
+    "path" : "C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/Vårcup/Vårcup 2020/2020varcup/index.rmd",
     "project_path" : "index.rmd",
     "properties" : {
+        "cursorPosition" : "18,48",
+        "scrollLine" : "5"
     },
     "read_only" : false,
     "read_only_alternatives" : [
