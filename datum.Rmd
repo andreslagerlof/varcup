@@ -2,7 +2,7 @@
 title: "Datum 2020"
 ---
 ## Boka in dom här datumen i era kalendrar:   
-  -  *Deltävling 1*: tisdagen den **4 februari** (start kl 19:15)    
+  -  ~~*Deltävling 1*: tisdagen den **4 februari** (start kl 19:15)~~    
   -  *Deltävling 2*: tisdagen den **3 mars** (start kl 19:15)  
   -  *Deltävling 3*: tisdagen den **24 mars** (start kl 19:15)  
   -  *Deltävling 4*: tisdagen den **14 april** (start kl 19:15)  
