@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583355379444.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8639A624",
+    "lastKnownWriteTime" : 1570261272,
+    "last_content_update" : 1570261272,
+    "path" : "C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/KM/KM_webb/fff_km/km_points_calculations.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "59,0",
+        "scrollLine" : "55"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

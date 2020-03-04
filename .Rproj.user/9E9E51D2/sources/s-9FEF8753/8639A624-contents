@@ -1,0 +1,91 @@
+# Load libraries
+library(tidyverse)
+library(readxl)
+
+## Import results from competitions
+
+# Import result dataset from first competition
+comp1 <- read_excel("C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/KM/KM_webb/fff_km/Result_no1.xlsx")
+View(comp1)
+
+# Import result from competition no 2
+comp2 <- read_excel("C:/Users/AndrésLagerlöf/OneDrive - Andrés Lagerlöf Konsulttjänst AB/Övrigt/Fäktning/KM/KM_webb/fff_km/Result_no2.xlsx")
+View(comp2)
+
+# -------------Future competitions --------------------
+# Import result from competition no 3
+# comp3 <- 
+# View(comp3)
+
+# Import result from competition no 4
+# comp4 <- 
+# View(comp4)
+
+# Import result from competition no 5
+# comp5 <- 
+# View(comp5)
+#---------------------------------------------------  
+
+## Aggregate all datasets to one dataset
+#For competitions 1-2
+tot2 <- bind_rows(comp1, comp2)
+View(tot2)
+
+## Calculate points per competition
+
+# Add new variable "points"
+tot <- tot2 %>% mutate(Points = case_when(
+  Place == 1 ~ 25,
+  Place == 2 ~ 22,
+  Place == 3 ~ 19,
+  Place == 4 ~ 17,
+  Place == 5 ~ 15,
+  Place == 6 ~ 13,
+  Place == 7 ~ 12,
+  Place == 8 ~ 11,
+  Place == 9 ~ 10,
+  Place == 10 ~ 9,
+  Place == 11 ~ 8,
+  Place == 12 ~ 7,
+  Place == 13 ~ 6,
+  Place == 14 ~ 5,
+  Place == 15 ~ 4,
+  Place == 16 ~ 3,
+  Place == 17 ~ 2,
+  TRUE ~ 1
+))
+View(tot)
+
+##  Change format for output - create "pivot table" with points per competition
+piv_comp_1to2 <- tot %>% 
+  select(Name, CompNo, Points) %>% 
+  spread(CompNo, Points) 
+View(piv_comp_1to2)
+
+## Calculate grand total points for all competitions (1-2)
+grand_tot_1to2 <- tot %>% group_by(Name) %>%
+  summarise(sum_points = sum(Points))
+View(grand_tot_1to2)
+
+# Create new piv df with totals column
+res_1to2 <- piv_comp_1to2 %>%
+  full_join(grand_tot_1to2, by = "Name") %>% 
+  arrange(desc(sum_points))
+View(res_1to2)
+
+
+
+# Create tabel output using kableExtra package
+kable(res_1to2) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+# Create tabel output using kableExtra package
+kable(tot) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+# Create a table with the DT package
+datatable( tot,
+           colnames = c("Namn" = "Name", "Placering" = "Place", "Poäng" = "points"),
+           caption = "Tabell 1: Placering efter KM, deltävling 1", 
+           options = list(pageLength = 18)) %>%
+          formatStyle('Poäng',  color = 'steelblue', fontWeight = 'bold') 

@@ -1,0 +1,7 @@
+
+```{r echo=FALSE}
+# Create tabel output using kableExtra package
+kable(df) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, 
+                position = "left")
+```
