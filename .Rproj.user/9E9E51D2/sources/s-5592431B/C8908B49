@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583402202534.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C8908B49",
+    "lastKnownWriteTime" : 2314885925955465820,
+    "last_content_update" : 1583402202534,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C407093",
+        "caption" : "piv_comp",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=piv_comp&cache_key=C407093",
+        "displayedObservations" : 25,
+        "environment" : "",
+        "expression" : "piv_comp",
+        "object" : "piv_comp",
+        "preview" : 0,
+        "totalObservations" : 25,
+        "variables" : 3
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
