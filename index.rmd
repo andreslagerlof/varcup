@@ -22,13 +22,18 @@ htmltools::includeHTML("jumbo.html")
 #### Ny hövding på tronen!
 I en hård och spännande final lyckades _Brolin_ besegra Karsten i finalen. Men vem är denne Brolin kanske ni undrar? Jag är glad att ni frågar, men vänta lite, vi tar det hela från början.  
 
-16 tappra fäktare trotsade pandemivarningarna och tog sig ned till FFF för att göra upp i Vårcupens 2:a deltävling. Efter en stenhård försöksomgång kunde Tor med stolthet bevittna sitt namn högst upp på 16-tablån med den spänstige britten Anthony som andrarankad. Karsten gjorde, sin vana trogen, också en stark insats i poulen och premierades för detta med en tredjeranking.  
+16 tappra fäktare trotsade pandemivarningarna och tog sig ned till FFF för att göra upp i Vårcupens 2:a deltävling. Denna gång var det roligt att konstatera att fler juniorer ställde upp. Bra gjort Yrsa, Olivia, Gustaf, Ian med flera! Prata gärna med era kompisar så att fler ställer upp nästa gång.  
+
+Efter en stenhård försöksomgång kunde Tor med stolthet bevittna sitt namn högst upp på 16-tablån med den spänstige britten Anthony som andrarankad. Karsten gjorde, sin vana trogen, också en stark insats i poulen och premierades för detta med en tredjeranking.  
 
 Men sedan handlade det mesta om denne Brolin! Hur kan en okänd fäktare helt oväntat besegra den fjärderankade Greger och därefter förpassa Tor till en uppgörelse om bronsplatsen, för att slutligen tvinga Karsten till en 2:a plats?  
 
-Efter närmare granskning visade det sig att personen som nu går under namnet Brolin, inte var någon annan än den fruktade värjfäktaren som tidigare var känd som Robert Dingl. Med sin slutna defensiv gjorde således denne Robert Brolin processen kort med de andra fäktarna.  
+Vid närmare granskning visade det sig att personen som nu går under namnet Brolin, inte var någon annan än den fruktade värjfäktaren som tidigare var känd som Robert Dingl. Med sin slutna defensiv gjorde denne Robert Brolin processen kort med de andra fäktarna.  
 
-Välkommen Robban!   
+Välkommen Robban!  
+
+Och till er andra: träna hårt så att ni kan mäta era krafter mot denne rutinerade nykomling nästa gång den 24:e mars!  
+
 
 ```{r points_table, include=FALSE}
 # -- Import file and create dataframe
