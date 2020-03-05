@@ -78,6 +78,7 @@ res_1to2 <- piv_comp %>%
   arrange(desc(sum_points))
 View(res_1to2)
 
+# Rename columns for final table
 df <- res_1to2 %>% rename("Namn" = "name", "Summa Poäng" = "sum_points")
 
 ```
