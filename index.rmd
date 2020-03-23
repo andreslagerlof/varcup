@@ -24,25 +24,9 @@ Skälet till att tävlingen inte blir av är dessvärre höljd i dunkel. I socia
 
 Men, som vi tidigare varit tydliga med, här är inte rätt forum att kommentera rykten. Det enda vi kan göra är att sätta förhoppningar till att nästa deltävling **den 14 april** blir av och att vi då äntligen får se en annan fäktare överst i resultattabellen!  
 
-_Håll er friska till nästa gång!_
+_Håll er friska till nästa gång!_  
 
-### Deltävling 2
-
-#### Ny hövding på tronen!
-I en hård och spännande final lyckades _Brolin_ besegra Karsten i finalen. Men vem är Brolin kanske ni undrar? Jag är glad att ni frågar, men vänta lite, vi tar det hela från början.  
-
-16 tappra fäktare trotsade pandemivarningarna och tog sig ned till FFF för att göra upp i Vårcupens 2:a deltävling. Denna gång var det roligt att konstatera att fler juniorer ställde upp. Bra gjort Yrsa, Olivia, Gustaf, Ian med flera! Prata gärna med era kompisar så att fler ställer upp nästa gång.  
-
-Efter en stenhård försöksomgång kunde Tor med stolthet bevittna sitt namn högst upp på 16-tablån med den spänstige britten Anthony som andrarankad. Karsten gjorde, sin vana trogen, också en stark insats i poulen och premierades för detta med en tredjeranking.  
-
-Men sedan handlade det mesta om Brolin! Hur kan en okänd fäktare helt oväntat besegra den fjärderankade Greger och därefter förpassa Tor till en uppgörelse om bronsplatsen, för att slutligen tvinga Karsten till en 2:a plats?  
-
-Vid närmare granskning visade det sig att personen som nu går under namnet Brolin, inte var någon annan än den fruktade värjfäktaren som tidigare var känd som Robert Dingl. Med sin slutna defensiv gjorde Robert Brolin processen kort med de andra fäktarna.  
-
-Välkommen Robban!  
-
-Och till er andra: träna hårt så att ni kan mäta era krafter mot den rutinerade nykomlingen nästa gång den 24:e mars!  
-
+#### Poängställningen hittills  
 
 ```{r points_table, include=FALSE}
 # -- Import file and create dataframe
@@ -98,6 +82,25 @@ kable(df) %>%
   kable_styling(bootstrap_options = "striped", full_width = F, 
                 position = "left")
 ```
+
+
+### Deltävling 2
+
+#### Ny hövding på tronen!
+I en hård och spännande final lyckades _Brolin_ besegra Karsten i finalen. Men vem är Brolin kanske ni undrar? Jag är glad att ni frågar, men vänta lite, vi tar det hela från början.  
+
+16 tappra fäktare trotsade pandemivarningarna och tog sig ned till FFF för att göra upp i Vårcupens 2:a deltävling. Denna gång var det roligt att konstatera att fler juniorer ställde upp. Bra gjort Yrsa, Olivia, Gustaf, Ian med flera! Prata gärna med era kompisar så att fler ställer upp nästa gång.  
+
+Efter en stenhård försöksomgång kunde Tor med stolthet bevittna sitt namn högst upp på 16-tablån med den spänstige britten Anthony som andrarankad. Karsten gjorde, sin vana trogen, också en stark insats i poulen och premierades för detta med en tredjeranking.  
+
+Men sedan handlade det mesta om Brolin! Hur kan en okänd fäktare helt oväntat besegra den fjärderankade Greger och därefter förpassa Tor till en uppgörelse om bronsplatsen, för att slutligen tvinga Karsten till en 2:a plats?  
+
+Vid närmare granskning visade det sig att personen som nu går under namnet Brolin, inte var någon annan än den fruktade värjfäktaren som tidigare var känd som Robert Dingl. Med sin slutna defensiv gjorde Robert Brolin processen kort med de andra fäktarna.  
+
+Välkommen Robban!  
+
+Och till er andra: träna hårt så att ni kan mäta era krafter mot den rutinerade nykomlingen nästa gång den 24:e mars!  
+
 
 
 ### Deltävling 1
