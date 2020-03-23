@@ -12,9 +12,9 @@
     "path" : null,
     "project_path" : null,
     "properties" : {
-        "cacheKey" : "FA179599",
+        "cacheKey" : "EA524D6A",
         "caption" : "res",
-        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=res&cache_key=FA179599",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=res&cache_key=EA524D6A",
         "displayedObservations" : "32",
         "environment" : "",
         "expression" : "res",
