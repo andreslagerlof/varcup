@@ -22,7 +22,9 @@ htmltools::includeHTML("jumbo.html")
 
 Skälet till att tävlingen inte blir av är dessvärre höljd i dunkel. I sociala medier är spekulationerna i full gång. Ett av ryktena säger att tävlingsledningen nära samröre med Andrés är ett av skälen. Det sägs att Andrés har ställt kravet på att ställa in tävlingen som ett desperat försök att hålla sig kvar i poängsammanställningen. Vi anser att detta är högst troligt och kommer ihåg de häftiga anklagelser om korruption som tävlingsledningen återkommande har fått ta emot.  
 
-Men, som vi tidigare varit tydliga med, här är inte rätt forum att kommentera rykten. Det enda vi kan göra är att sätta förhoppningar till att nästa deltävling **den 14 april** blir av och att vi då äntligen får se en annan fäktare överst i resultattabellen!
+Men, som vi tidigare varit tydliga med, här är inte rätt forum att kommentera rykten. Det enda vi kan göra är att sätta förhoppningar till att nästa deltävling **den 14 april** blir av och att vi då äntligen får se en annan fäktare överst i resultattabellen!  
+
+_Håll er friska till nästa gång!_
 
 ### Deltävling 2
 
