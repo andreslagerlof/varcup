@@ -1,6 +1,0 @@
-library(tidyverse)
-# Create file path
-files <- list.files(path = "./results", pattern = "*.xlsx", full.names = T)
-
-library(readr)
-placeringar_2006_2019 <- read_csv2("./results/placeringar_2006-2019.csv")
