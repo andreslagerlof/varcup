@@ -1,0 +1,250 @@
+---
+title: "Historik"
+date: '2020-04-24'
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(readr)
+library(readxl)
+library(DT)
+library(kableExtra)
+library(scales)
+library(gt)
+```
+
+
+```{r data_prep, include=FALSE}
+## Prepare the data
+
+# Complete dataset for datatable download-------------------
+# This dataset has 2 fencers (Tor and Måns) on the 3rd place for yerar 2016
+library(readr)
+hist1 <- read_csv2("./results/placeringar_2006-2019_v1.csv")
+
+# Dataset for plots ----------------------------------------
+# This dataset has separated the 3rd for year 2016 places into separate rows
+# Read data
+library(readr)
+hist <- read_csv2("./results/placeringar_2006-2019.csv")
+
+# Create a long dataset
+res_hist <- hist %>% 
+  pivot_longer(c("1:a", "2:a", "3:a"), 
+                     names_to = "place", values_to = "name")
+# View(long_hist)
+
+# Create df with name and no of entries
+no_top3 <- res_hist %>% group_by(name) %>% count() %>% arrange(desc(n)) 
+
+# Separate name variable in no_top3 df
+no_top3 <- no_top3 %>% separate(name, into = c("firstname", "lastname"))
+
+# Create datafreme with name, place and count of place
+stat <- res_hist %>% group_by(name, place) %>% count() %>%arrange(desc(n)) %>%  arrange(place)
+
+# Separate name variable in stat df
+stat <- stat %>% separate(name, into = c("firstname", "lastname"))
+
+```
+
+## Tävlingsledningen ber om ursäkt!
+Som ni väl känner till har det länge funnits ett brett missnöje och en massiv kritik mot Vårcupens nuvarande tävlingsledning. Den främsta orsaken till detta är den undermåliga tillgången på historiskt datamaterial rörande tävlingen. Detta trots att den tidigare tävlingsledningen bestående av Janne Tivenius lämnade efter sig gediget datamaterial över tävlingsresultat för Vårcupen.  
+
+Tävlingsledningen har nu äntligen tagit denna kritik till sig och har tillsatt statistiks expertis för att återupprätta det lilla förtroende som förhoppningsvis fortfarande finns kvar. Resultaten av dessa ansträngningar kan ni nu ta del av.  
+
+## Resultathistorik
+Under de 14 år som Vårcupen har haft sin nuvarande skepnad har inte bara FFFs främsta fäktare lämnat avtryck i resultattabellen utan vi kan även konstatera att Djurgårdens Robin Kase har utmärkt sig. Men vi ska inte gå händelserna i förväg. Till att börja med ska vi presentera den fullständiga listan över medaljörer i Vårcupen.  
+
+Som ni ser kan ni själva ladda ned datamaterialet för att genomföra egna analyser eller göra kontroller av tävlingsledningens arbete.  
+
+<br>
+<br>
+
+```{r tot_table, echo=FALSE}
+datatable(
+  hist1,
+  caption = "Lista över resultat 2006 till 2019",
+  extensions = 'Buttons', 
+    options = list(dom = 'Bfrtip',
+    buttons = c( 'csv', 'excel', 'pdf', 'print'))
+  )
+```
+
+<br>
+<br>
+Endast en lam tabell uppfyller ju inte det fullt befogade kravet på gedigen statistisk rapportering. Därför kör vi vidare med lite kompletterande analys.  
+
+### Antal pallplatser
+Låt oss börja med att kolla in vilka fäktare som placerat sig på pallplatser under perioden.
+
+```{r pallplatser, echo=FALSE}
+# Create barplot of top 3
+no_top3 %>% 
+  drop_na() %>% 
+  ggplot( aes(x=reorder(firstname, n), n)) + 
+  geom_bar(stat = "identity", fill = "chocolate") +
+  theme_light() +
+  coord_flip() +
+  labs(title="Antal top 3 placeringar", 
+       subtitle = "Perioden 2006 till 2019",
+       caption = "Källa: Janne Tivenius och Andrés Gomez",
+       x= "Fäktare", 
+       y="Antal top 3") +
+  geom_text(aes(label = n), 
+            hjust = -0.25, 
+            color = "#1380A1") 
+```
+
+För de av er som följt KM-statistiken kan det knappast komma som en överraskning att se Tors namn överst i den här tabellen. Med 11 pallplatser har han ett betryggande avstånd till nästa gigant i form av Christian Gustavsson som kan stoltsera med hela 7 stycken pallplatser. Bra jobbat Tor och Christian!  
+
+Bakom dessa kungligheter har vi en klunga fäktare med upprepade medaljplatser på sitt samvete. Bäst bland dessa är Kalle Harmenberg med 4 sådana. Intressant nog har en icke-FFF:are i form av Robin Kase tagit sig in på listan av återfallsmedaljörer. Bland de som tagit sig upp på pallen flera gånger förtjänar självfallet Benedict också ett hedersomnämnande.  
+
+Slutligen finns en grupp om 5 fäktare som en gång lyckats med prestationen att placera sig bland topp 3. Säkerligen kommer vi få se flertalet av dessa namn i framtida resultatrapporteringar.  
+
+Men hur fördelar sig dessa pallplatser mellan 1:a, 2:a och 3:e platser undrar ni säkert? Fortsätt då läsa för här kommer mer!  
+
+### Antal 3:e placeringar
+Att komma 3:a i Vårcupen är i sanning en enastående prestation! Vilka kan då dessa övermänniskor vara som lyckat med detta? Tack för att ni frågade! Här kommer svaret:  
+
+```{r thirds, echo=FALSE}
+# Create barplot of third places
+stat %>% 
+  drop_na() %>% 
+  filter(place == "3:a") %>% 
+  ggplot( aes(x=reorder(firstname, n), n)) +
+  geom_bar(stat = "identity", fill = "wheat4") +
+  theme_minimal()+
+  coord_flip() +
+  labs(title="Antal 3:e platser per fäktare", 
+       subtitle = "Perioden 2006 till 2019",
+       caption = "Källa: Janne Tivenius och Andrés Gomez",
+       x= "Fäktare", 
+       y="Antal 3:e platser") +
+  geom_text(aes(label = n), 
+            hjust = -0.3)
+```
+
+Oj, här var det jämt! Som ni kan se är det Christian och Tor som utmärker sig med hela 4 stycken 3:e placeringar var. De är faktiskt de enda fäktare som lyckats med bedriften att ta sig fram till 3:e platsen mer än en gång. Verkligen starkt!  
+
+Visst nämnde vi tidigare att icke-FFF:are har utmärkts sig i Vårcupen? Det kan ni tydligt se här, Robin Kase från Djurgården har skrivit in sig i historeiböckerna.  
+
+### Silvermedaljörer
+Dags att vänd blickarna till de finalisterna, de som nått nästan hela vägen till målet: silvermedaljörerna. Vilka som ingår i denna exklusiva  skara framträder här.
+
+```{r seconds, echo=FALSE}
+# Create barplot of seconds
+stat %>% 
+  drop_na() %>% 
+  filter(place == "2:a") %>% 
+  ggplot( aes(x=reorder(firstname, n), n)) +
+  geom_bar(stat = "identity", fill = "dodgerblue") +
+  theme_light()+
+  coord_flip() +
+  labs(title="Antal 2:a platser per fäktare", 
+       subtitle = "Perioden 2006 till 2019",
+       caption = "Källa: Janne Tivenius och Andrés Gomez",
+       x= "Fäktare", 
+       y="Antal 2:a placeringar") +
+  geom_text(aes(label = n), 
+            hjust = -0.3, 
+            color = "#1380A1")
+```
+
+Milda makter! Sju fäktare har nått nästan hela vägen och inte mindre än 5 av dessa har gjort detta flera gånger. Värt att notera att Greger matchar Tor i toppen på denna lista, båda med 3 segrar var.  
+
+### Segrare
+Och slutligen, vilka har vunnit?  
+
+```{r winners, echo=FALSE}
+# Create barplot of winners
+stat %>% 
+  drop_na() %>% 
+  filter(place == "1:a") %>% 
+  ggplot( aes(x=reorder(firstname, n), n)) +
+  geom_bar(stat = "identity", fill = "darkolivegreen") +
+  theme_minimal()+
+  coord_flip() +
+  labs(title="Antal segrar per fäktare", 
+       subtitle = "Perioden 2006 till 2019",
+       caption = "Källa: Janne Tivenius och Andrés Gomez",
+       x= "Fäktare", 
+       y="Antal segrar") +
+  geom_text(aes(label = n), 
+            hjust = -0.3, 
+            color = "darkgreen")
+```
+
+9 olika fäktare har nått så långt man kan nå (i alla fall i Vårcupssammanhang). Återigen ser vi Tor och Christian överst bland denna illustra skara! Båda dessa fäktare har dessutom vid upprepade tillfällen presterat bättre än alla andra. I Tors fall 4 gånger och i Christians 3 gånger. Hatten av till dessa välförtjänta mästare!  
+
+### Fler betraktelser
+Vi har sett hur den yppersta eliten har presterat i Vårcupen, men hur ser detta förlopp ut över tiden? Vi vet ju att tävlingen har utspelats under en 14-årsperiod. Finns det något att notera när man tar tidshorisonten i betraktelse? Låt oss titta. 
+
+```{r extra_analysis, echo=FALSE}
+# Make data frame of Tors victories
+tor <- hist %>% filter(`1:a` == "Tor Forsse")
+# Change column name
+tor <- tor %>% rename(År = Year)
+
+# Make data frame of Christians victories
+christian <- hist %>% filter(`1:a` == "Christian Gustavsson")
+# Change column name
+christian <- christian %>% rename(År = Year)
+
+# Make data frame of last 3 years
+last3years <- hist %>% filter(Year %in% c(2017, 2018, 2019))
+# Change column name
+last3years <- last3years %>% rename(År = Year)
+```
+
+Vi börjar med att kolla på Tor segrar eftersom han är den som vunnit flest gånger.  
+<br>
+
+```{r tor_table, echo=FALSE}
+# Create table of tor data frame
+tor_table <- gt(data = tor)
+tor_table %>% 
+  tab_header(title = "Tors segrar i Vårcupen")
+```
+
+<br>
+Intressant! Här kan vi konstatera att Tors segrar spänner över hela den tid som Vårcupen har existerat. Uppenbarligen har tidens tand inte påverkat Tors  prestationer. Bra där!  
+
+Christian då? Låt oss titta närmare på hans segrar.  
+
+<br>
+
+```{r chirstian_table, echo=FALSE}
+# Create table christian data frame
+christian_table <- gt(data = christian)
+christian_table %>% 
+  tab_header(title = "Christians segrar i Vårcupen")
+```
+
+<br>
+
+Christians dominansperiod började 2012 varefter han med ett års mellanrum erövrade segern ytterligare två gånger. Egendomligt att han inte vann även 2018? Vad kan ha skett där? Låt oss titta!  
+
+<br>
+
+```{r last3years_table, echo=FALSE}
+# Create table of last3years data frame
+last3_table <- gt(data = last3years)
+last3_table %>% 
+  tab_header(title = "Resultat de senaste 3 åren")
+```
+
+<br>
+Aha! Där har vi förklaringen till att Christian inte vann 2018 -- CH kliver in på scenen! Det här kräver dock lite närmare förklaring.  
+
+CH är på inga vis ny i klubbens historia. I flera decennier har han figurerat i händelsernas centrum. Vem har väl glömt segern i skol-SM i början av 80-talet? Den gången i florett. Och vi var många som grät glädjetårar när CH äntligen fick dra på sig den svenska landslagsoverallen (som han låtat av Joar) och framgångsrikt representerade vår stolta nation i veteranlandslaget. Att göra en komplett anal över CHs många bedrifter får dock anstå till en framtida krönika. Vi måste trots allt nämna att flera "förståsigpåare" hävdar att CH aldrig tidigare varit bättre än han varit under de senaste åren. Den här analysen ger anhängare av denna teori ett otvetydigt stöd. Alla CHs 3 pallplatser har kommit till stånd under den senaste 3-årsperioden! Dessutom har han under denna period aldrig varit sämre än 2:a.  
+
+Vad har då framtiden i sitt sköte? Svaret på denna fråga kan ni själva påverka genom fortsätta strida för att skiva in er i listan över tävlingens många hjältar!

@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2020-04-24" />
+
+<title>Historik</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/jszip-1.10.20/jszip.min.js"></script>
+<script src="site_libs/pdfmake-1.10.20/pdfmake.js"></script>
+<script src="site_libs/pdfmake-1.10.20/vfs_fonts.js"></script>
+<link href="site_libs/dt-ext-buttons-1.10.20/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="site_libs/dt-ext-buttons-1.10.20/js/dataTables.buttons.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.flash.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.html5.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.colVis.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.10.20/js/buttons.print.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Vårcup</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home fa-fw"></span>
+     
+    Hem
+  </a>
+</li>
+<li>
+  <a href="datum.html">
+    <span class="far fa far fa-calendar-check fa-fw"></span>
+     
+    Tävlingsdatum
+  </a>
+</li>
+<li>
+  <a href="regler.html">
+    <span class="fas fa fas fa-info fa-fw"></span>
+     
+    Regler och poängsystem
+  </a>
+</li>
+<li>
+  <a href="historik.html">
+    <span class="fas fa fas fa-archive fa-fw"></span>
+     
+    Historik
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://twitter.com/andreslagerlof">
+    <span class="fab fa fab fa-twitter fa-fw"></span>
+     
+    Kontakt
+  </a>
+</li>
+<li>
+  <a href="https://github.com/andreslagerlof/varcup.git">
+    <span class="fa fa-github fa-fw"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Historik</h1>
+<h4 class="date">2020-04-24</h4>
+
+</div>
+
+
+<div id="tävlingsledningen-ber-om-ursäkt" class="section level2">
+<h2>Tävlingsledningen ber om ursäkt!</h2>
+<p>Som ni väl känner till har det länge funnits ett brett missnöje och en massiv kritik mot Vårcupens nuvarande tävlingsledning. Den främsta orsaken till detta är den undermåliga tillgången på historiskt datamaterial rörande tävlingen. Detta trots att den tidigare tävlingsledningen bestående av Janne Tivenius lämnade efter sig gediget datamaterial över tävlingsresultat för Vårcupen.</p>
+<p>Tävlingsledningen har nu äntligen tagit denna kritik till sig och har tillsatt statistiks expertis för att återupprätta det lilla förtroende som förhoppningsvis fortfarande finns kvar. Resultaten av dessa ansträngningar kan ni nu ta del av.</p>
+</div>
+<div id="resultathistorik" class="section level2">
+<h2>Resultathistorik</h2>
+<p>Under de 14 år som Vårcupen har haft sin nuvarande skepnad har inte bara FFFs främsta fäktare lämnat avtryck i resultattabellen utan vi kan även konstatera att Djurgårdens Robin Kase har utmärkt sig. Men vi ska inte gå händelserna i förväg. Till att börja med ska vi presentera den fullständiga listan över medaljörer i Vårcupen.</p>
+<p>Som ni ser kan ni själva ladda ned datamaterialet för att genomföra egna analyser eller göra kontroller av tävlingsledningens arbete.</p>
+<p><br> <br></p>
+<div id="htmlwidget-a245b65d35a49476d73a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a245b65d35a49476d73a">{"x":{"filter":"none","extensions":["Buttons"],"caption":"<caption>Lista över resultat 2006 till 2019<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],["Tor Forsse","Janne Tivenius","Benedict Chambers","Tor Forsse","Andrés Gomez","Karl Harmenberg","Christian Gustavsson","Robin Kase","Christian Gustavsson","Tor Forsse","Christian Gustavsson","Grigori Beskin","C-H Wendt","Tor Forsse"],["Andrés Gomez","Tor Forsse","Janne Tivenius","Greger Forslöw","Janne Tivenius","Greger Forslöw","Karl Harmenberg","Tor Forsse","Karl Harmenberg","Greger Forslöw","Lars Lindblad","C-H Wendt","Tor Forsse","C-H Wendt"],["Kim Mounen","Christian Gustavsson","Tor Forsse","Benedict Chambers","Christian Gustavsson","Tor Forsse","Tor Forsse","Christian Gustavsson","Robin Kase","Christian Gustavsson","Tor Forsse/Måns Andersson","Karl Harmenberg","Andrés Gomez","Karsten Kaping"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Year<\/th>\n      <th>1:a<\/th>\n      <th>2:a<\/th>\n      <th>3:a<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["csv","excel","pdf","print"],"columnDefs":[{"className":"dt-right","targets":1},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p><br> <br> Endast en lam tabell uppfyller ju inte det fullt befogade kravet på gedigen statistisk rapportering. Därför kör vi vidare med lite kompletterande analys.</p>
+<div id="antal-pallplatser" class="section level3">
+<h3>Antal pallplatser</h3>
+<p>Låt oss börja med att kolla in vilka fäktare som placerat sig på pallplatser under perioden.</p>
+<p><img src="historik_files/figure-html/pallplatser-1.png" width="672" /></p>
+<p>För de av er som följt KM-statistiken kan det knappast komma som en överraskning att se Tors namn överst i den här tabellen. Med 11 pallplatser har han ett betryggande avstånd till nästa gigant i form av Christian Gustavsson som kan stoltsera med hela 7 stycken pallplatser. Bra jobbat Tor och Christian!</p>
+<p>Bakom dessa kungligheter har vi en klunga fäktare med upprepade medaljplatser på sitt samvete. Bäst bland dessa är Kalle Harmenberg med 4 sådana. Intressant nog har en icke-FFF:are i form av Robin Kase tagit sig in på listan av återfallsmedaljörer. Bland de som tagit sig upp på pallen flera gånger förtjänar självfallet Benedict också ett hedersomnämnande.</p>
+<p>Slutligen finns en grupp om 5 fäktare som en gång lyckats med prestationen att placera sig bland topp 3. Säkerligen kommer vi få se flertalet av dessa namn i framtida resultatrapporteringar.</p>
+<p>Men hur fördelar sig dessa pallplatser mellan 1:a, 2:a och 3:e platser undrar ni säkert? Fortsätt då läsa för här kommer mer!</p>
+</div>
+<div id="antal-3e-placeringar" class="section level3">
+<h3>Antal 3:e placeringar</h3>
+<p>Att komma 3:a i Vårcupen är i sanning en enastående prestation! Vilka kan då dessa övermänniskor vara som lyckat med detta? Tack för att ni frågade! Här kommer svaret:</p>
+<p><img src="historik_files/figure-html/thirds-1.png" width="672" /></p>
+<p>Oj, här var det jämt! Som ni kan se är det Christian och Tor som utmärker sig med hela 4 stycken 3:e placeringar var. De är faktiskt de enda fäktare som lyckats med bedriften att ta sig fram till 3:e platsen mer än en gång. Verkligen starkt!</p>
+<p>Visst nämnde vi tidigare att icke-FFF:are har utmärkts sig i Vårcupen? Det kan ni tydligt se här, Robin Kase från Djurgården har skrivit in sig i historeiböckerna.</p>
+</div>
+<div id="silvermedaljörer" class="section level3">
+<h3>Silvermedaljörer</h3>
+<p>Dags att vänd blickarna till de finalisterna, de som nått nästan hela vägen till målet: silvermedaljörerna. Vilka som ingår i denna exklusiva skara framträder här.</p>
+<p><img src="historik_files/figure-html/seconds-1.png" width="672" /></p>
+<p>Milda makter! Sju fäktare har nått nästan hela vägen och inte mindre än 5 av dessa har gjort detta flera gånger. Värt att notera att Greger matchar Tor i toppen på denna lista, båda med 3 segrar var.</p>
+</div>
+<div id="segrare" class="section level3">
+<h3>Segrare</h3>
+<p>Och slutligen, vilka har vunnit?</p>
+<p><img src="historik_files/figure-html/winners-1.png" width="672" /></p>
+<p>9 olika fäktare har nått så långt man kan nå (i alla fall i Vårcupssammanhang). Återigen ser vi Tor och Christian överst bland denna illustra skara! Båda dessa fäktare har dessutom vid upprepade tillfällen presterat bättre än alla andra. I Tors fall 4 gånger och i Christians 3 gånger. Hatten av till dessa välförtjänta mästare!</p>
+</div>
+<div id="fler-betraktelser" class="section level3">
+<h3>Fler betraktelser</h3>
+<p>Vi har sett hur den yppersta eliten har presterat i Vårcupen, men hur ser detta förlopp ut över tiden? Vi vet ju att tävlingen har utspelats under en 14-årsperiod. Finns det något att notera när man tar tidshorisonten i betraktelse? Låt oss titta.</p>
+<p>Vi börjar med att kolla på Tor segrar eftersom han är den som vunnit flest gånger.<br />
+<br></p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#kshzppfnsk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kshzppfnsk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kshzppfnsk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kshzppfnsk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kshzppfnsk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kshzppfnsk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kshzppfnsk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kshzppfnsk .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kshzppfnsk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kshzppfnsk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kshzppfnsk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kshzppfnsk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kshzppfnsk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kshzppfnsk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#kshzppfnsk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kshzppfnsk .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kshzppfnsk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#kshzppfnsk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kshzppfnsk .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#kshzppfnsk .gt_left {
+  text-align: left;
+}
+
+#kshzppfnsk .gt_center {
+  text-align: center;
+}
+
+#kshzppfnsk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kshzppfnsk .gt_font_normal {
+  font-weight: normal;
+}
+
+#kshzppfnsk .gt_font_bold {
+  font-weight: bold;
+}
+
+#kshzppfnsk .gt_font_italic {
+  font-style: italic;
+}
+
+#kshzppfnsk .gt_super {
+  font-size: 65%;
+}
+
+#kshzppfnsk .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="kshzppfnsk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="4" class="gt_heading gt_title gt_font_normal" style>Tors segrar i Vårcupen</th>
+    </tr>
+    <tr>
+      <th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style></th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">År</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">1:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">2:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">3:a</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_right">2006</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">Andrés Gomez</td>
+      <td class="gt_row gt_left">Kim Mounen</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2009</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">Greger Forslöw</td>
+      <td class="gt_row gt_left">Benedict Chambers</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2015</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">Greger Forslöw</td>
+      <td class="gt_row gt_left">Christian Gustavsson</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2019</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">CH Wendt</td>
+      <td class="gt_row gt_left">Karsten Kaping</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p><br> Intressant! Här kan vi konstatera att Tors segrar spänner över hela den tid som Vårcupen har existerat. Uppenbarligen har tidens tand inte påverkat Tors prestationer. Bra där!</p>
+<p>Christian då? Låt oss titta närmare på hans segrar.</p>
+<p><br></p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qwqhstyhdb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qwqhstyhdb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qwqhstyhdb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qwqhstyhdb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qwqhstyhdb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qwqhstyhdb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qwqhstyhdb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qwqhstyhdb .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qwqhstyhdb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qwqhstyhdb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qwqhstyhdb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qwqhstyhdb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qwqhstyhdb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qwqhstyhdb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#qwqhstyhdb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwqhstyhdb .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qwqhstyhdb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qwqhstyhdb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qwqhstyhdb .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qwqhstyhdb .gt_left {
+  text-align: left;
+}
+
+#qwqhstyhdb .gt_center {
+  text-align: center;
+}
+
+#qwqhstyhdb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qwqhstyhdb .gt_font_normal {
+  font-weight: normal;
+}
+
+#qwqhstyhdb .gt_font_bold {
+  font-weight: bold;
+}
+
+#qwqhstyhdb .gt_font_italic {
+  font-style: italic;
+}
+
+#qwqhstyhdb .gt_super {
+  font-size: 65%;
+}
+
+#qwqhstyhdb .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qwqhstyhdb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="4" class="gt_heading gt_title gt_font_normal" style>Christians segrar i Vårcupen</th>
+    </tr>
+    <tr>
+      <th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style></th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">År</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">1:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">2:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">3:a</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_right">2012</td>
+      <td class="gt_row gt_left">Christian Gustavsson</td>
+      <td class="gt_row gt_left">Karl Harmenberg</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2014</td>
+      <td class="gt_row gt_left">Christian Gustavsson</td>
+      <td class="gt_row gt_left">Karl Harmenberg</td>
+      <td class="gt_row gt_left">Robin Kase</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2016</td>
+      <td class="gt_row gt_left">Christian Gustavsson</td>
+      <td class="gt_row gt_left">Lars Lindblad</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p><br></p>
+<p>Christians dominansperiod började 2012 varefter han med ett års mellanrum erövrade segern ytterligare två gånger. Egendomligt att han inte vann även 2018? Vad kan ha skett där? Låt oss titta!</p>
+<p><br></p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#jrjovwibob .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jrjovwibob .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jrjovwibob .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jrjovwibob .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jrjovwibob .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jrjovwibob .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jrjovwibob .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jrjovwibob .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jrjovwibob .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jrjovwibob .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jrjovwibob .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jrjovwibob .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jrjovwibob .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jrjovwibob .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#jrjovwibob .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jrjovwibob .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jrjovwibob .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#jrjovwibob .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jrjovwibob .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#jrjovwibob .gt_left {
+  text-align: left;
+}
+
+#jrjovwibob .gt_center {
+  text-align: center;
+}
+
+#jrjovwibob .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jrjovwibob .gt_font_normal {
+  font-weight: normal;
+}
+
+#jrjovwibob .gt_font_bold {
+  font-weight: bold;
+}
+
+#jrjovwibob .gt_font_italic {
+  font-style: italic;
+}
+
+#jrjovwibob .gt_super {
+  font-size: 65%;
+}
+
+#jrjovwibob .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="jrjovwibob" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="4" class="gt_heading gt_title gt_font_normal" style>Resultat de senaste 3 åren</th>
+    </tr>
+    <tr>
+      <th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style></th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">År</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">1:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">2:a</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">3:a</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_right">2017</td>
+      <td class="gt_row gt_left">Grigori Beskin</td>
+      <td class="gt_row gt_left">CH Wendt</td>
+      <td class="gt_row gt_left">Karl Harmenberg</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2018</td>
+      <td class="gt_row gt_left">CH Wendt</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">Andrés Gomez</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2019</td>
+      <td class="gt_row gt_left">Tor Forsse</td>
+      <td class="gt_row gt_left">CH Wendt</td>
+      <td class="gt_row gt_left">Karsten Kaping</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p><br> Aha! Där har vi förklaringen till att Christian inte vann 2018 – CH kliver in på scenen! Det här kräver dock lite närmare förklaring.</p>
+<p>CH är på inga vis ny i klubbens historia. I flera decennier har han figurerat i händelsernas centrum. Vem har väl glömt segern i skol-SM i början av 80-talet? Den gången i florett. Och vi var många som grät glädjetårar när CH äntligen fick dra på sig den svenska landslagsoverallen (som han låtat av Joar) och framgångsrikt representerade vår stolta nation i veteranlandslaget. Att göra en komplett anal över CHs många bedrifter får dock anstå till en framtida krönika. Vi måste trots allt nämna att flera “förståsigpåare” hävdar att CH aldrig tidigare varit bättre än han varit under de senaste åren. Den här analysen ger anhängare av denna teori ett otvetydigt stöd. Alla CHs 3 pallplatser har kommit till stånd under den senaste 3-årsperioden! Dessutom har han under denna period aldrig varit sämre än 2:a.</p>
+<p>Vad har då framtiden i sitt sköte? Svaret på denna fråga kan ni själva påverka genom fortsätta strida för att skiva in er i listan över tävlingens många hjältar!</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

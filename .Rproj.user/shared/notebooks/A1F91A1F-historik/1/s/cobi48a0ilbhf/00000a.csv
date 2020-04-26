@@ -1,0 +1,12 @@
+"0","hist <- read_csv2(""./results/placeringar_2006-2019.csv"")
+"
+"2","Using ',' as decimal and '.' as grouping mark. Use read_delim() for more control.
+"
+"2","Parsed with column specification:
+cols(
+  Year = [32mcol_double()[39m,
+  `1:a` = [31mcol_character()[39m,
+  `2:a` = [31mcol_character()[39m,
+  `3:a` = [31mcol_character()[39m
+)
+"
